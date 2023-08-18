@@ -16,6 +16,23 @@ class HomePage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                GetBuilder<TapController>(builder: (_){
+                  return Container(
+                  margin: const EdgeInsets.all(10),
+                  height: 50,
+                  decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: const Color(0xff69dad0),
+                  ),
+                  child: Center(
+                  child: Text(controller.x.toString(), style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  ),
+                  ),
+                  ),
+                  );
+                }),
                 GestureDetector(
                   onTap: (){
                     controller.increase();
