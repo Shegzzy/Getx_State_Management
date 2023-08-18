@@ -23,33 +23,42 @@ class FirstPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                margin: const EdgeInsets.all(10),
-                height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: const Color(0xff69dad0),
-                ),
-                child: Center(
-                  child: Text(controller.x.toString(), style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  ),
-                ),
+              GetBuilder<TapController>(
+                builder: (_) {
+                  return Container(
+                    margin: const EdgeInsets.all(10),
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: const Color(0xff69dad0),
+                    ),
+                    child: Center(
+                      child: Text(controller.x.toString(), style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      ),
+                    ),
+                  );
+                },
               ),
-              Container(
-                margin: const EdgeInsets.all(10),
-                height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.green,
-                ),
-                child: const Center(
-                  child: Text("Decrease Me", style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
+              GestureDetector(
+                onTap: (){
+                  controller.decrease();
+                },
+                child: Container(
+                  margin: const EdgeInsets.all(10),
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.green,
                   ),
+                  child: const Center(
+                    child: Text("Decrease Me", style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    ),
                   ),
                 ),
               )
