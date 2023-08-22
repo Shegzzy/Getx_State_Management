@@ -9,10 +9,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TapController controller = Get.put(TapController());
+    TapController controller = Get.find();
     return Scaffold(
       body: SafeArea(
-          child: Container(
+          child: SizedBox(
             width: double.maxFinite,
             height: double.maxFinite,
             child: Column(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_state_management/controllers/list_controller.dart';
 
 import '../controllers/tap_controller.dart';
 class SecondPage extends StatelessWidget {
@@ -7,6 +8,7 @@ class SecondPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ListController listController = Get.put(ListController());
     TapController controller = Get.find();
     return Scaffold(
       appBar: AppBar(
@@ -77,6 +79,46 @@ class SecondPage extends StatelessWidget {
                   ),
                   child: const Center(
                     child: Text("Sum X & Y ", style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: (){
+                  listController.savedList(controller.z);
+                },
+                child: Container(
+                  margin: const EdgeInsets.all(10),
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.green,
+                  ),
+                  child: const Center(
+                    child: Text("Save Sum", style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: (){
+                  listController.clearList();
+                },
+                child: Container(
+                  margin: const EdgeInsets.all(10),
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.green,
+                  ),
+                  child: const Center(
+                    child: Text("Clear List", style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w500,
                     ),
